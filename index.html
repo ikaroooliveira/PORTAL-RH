@@ -185,6 +185,13 @@ button.sm:hover{border-color:var(--ac)}
 .lgctl{flex:1 1 260px;min-width:0}
 .lgbtns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 4px}
 .lgup{cursor:pointer;display:inline-block;margin:0;font-size:14px}
+
+/* Checklist admissional */
+.kchk{display:flex;gap:12px;align-items:flex-start;padding:9px 6px;border-bottom:1px solid var(--bd);cursor:pointer;margin:0;font-size:15px;line-height:1.35;color:var(--fg)}
+.kchk input{width:20px;height:20px;padding:0;margin:1px 0 0;flex:none;accent-color:#d4af37;cursor:pointer}
+.kchk.on span{color:var(--mut)}
+.kchk:last-child{border-bottom:0}
+#kUf{margin:8px 0 4px}
 </style>
 </head>
 <body>
@@ -203,6 +210,7 @@ button.sm:hover{border-color:var(--ac)}
     <button class="tab" data-t="notebook">Termo de notebook</button>
     <button class="tab" data-t="epi">Registro de EPI</button>
     <button class="tab" data-t="conta">Conta salário</button>
+    <button class="tab" data-t="checklist">Checklist admissional</button>
     <button class="tab" data-t="salario">Cálculo de salário</button>
     <button class="tab" data-t="ferias">Férias · Compensação de horas</button>
     <button class="tab" data-t="empresas">Empresas</button>
@@ -219,6 +227,7 @@ button.sm:hover{border-color:var(--ac)}
       <button class="opt" data-go="notebook"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span><h3>Termo de notebook</h3><p>Entrega do notebook, com modelo, número de série e foto.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="epi"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 14a7.5 7.5 0 0 1 15 0"/><path d="M2.5 14h19v3.5h-19z"/><path d="M12 6.5V4"/></svg></span><h3>Registro de EPI</h3><p>Pesquise o funcionário e baixe o registro de entrega de EPI´s em PDF.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="conta"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><h3>Conta salário</h3><p>Planilha de abertura de conta com os dados do cadastro; você completa só o que falta.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+      <button class="opt" data-go="checklist"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m8.5 14 2.2 2.2 4.8-4.8"/></svg></span><h3>Checklist admissional</h3><p>Ficha de cadastro inicial de MS e PR: preencha os dados e marque os documentos recebidos.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="salario"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h4m-4 3h10"/><path d="M16 12v4"/></svg></span><h3>Cálculo de salário</h3><p>Calcule bruto, INSS, IRRF, FGTS e líquido, com horas extras, comissões e outras rubricas.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="ferias"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="2.6"/><path d="M12 13.8v1.3l.9.6"/></svg></span><h3>Férias · Compensação de horas</h3><p>Monte o relatório dia a dia, com jornada, atestados e feriados, em PDF e Excel.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="empresas"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16"/><path d="M14 10h5a1 1 0 0 1 1 1v10"/><path d="M2.5 21h19"/><path d="M8 8h2M8 12h2M8 16h2"/></svg></span><h3>Dados das empresas</h3><p>Consulte CNPJ, endereço e modelo de cada empresa e complete o que estiver faltando.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
@@ -342,6 +351,19 @@ button.sm:hover{border-color:var(--ac)}
     </div>
   </div>
 
+  <div id="kLista" style="display:none"><div class="card"><div class="sel"><h2>Checklists admissionais</h2><button class="btn sec" id="kNovo" type="button">+ Novo colaborador (sem cadastro)</button></div><div class="ext">Pesquise o funcionário acima para abrir a checklist dele, ou comece uma para quem ainda não está no cadastro. Em andamento:</div><div id="kAndamento" style="margin-top:8px"></div></div></div>
+  <div id="formK" style="display:none">
+    <div class="card"><div class="sel"><div><h2 id="kNomeT"></h2><div class="sub" id="kInfo" style="margin:0"></div></div><button class="lnk" id="trocarK" type="button">Trocar funcionário</button></div>
+      <div class="seg" id="kUf"><button type="button" data-uf="MS">Mato Grosso do Sul (MS)</button><button type="button" data-uf="PR">Paraná (PR)</button></div>
+      <div class="ext" id="kDoCad"></div></div>
+    <div class="card"><h2>Ficha de cadastro inicial</h2><div class="grid" id="kCampos"></div></div>
+    <div class="card"><div class="sel"><h2>Documentos para cadastro</h2><span class="tag" id="kProg"></span></div><div id="kItens"></div>
+      <div class="actions" style="margin-top:12px"><button class="btn sec" id="kTodos" type="button">Marcar todos</button><button class="btn sec" id="kLimpa" type="button">Limpar marcações</button></div></div>
+    <div class="card"><h2>Avisar</h2><div id="kAv"></div></div>
+    <div class="card"><h2>Portabilidade</h2><div class="grid" id="kPortCampos"></div></div>
+    <div class="actions"><button class="btn" id="kPdf" type="button">Baixar PDF</button><button class="btn sec" id="kVer" type="button">Visualizar</button></div>
+    <div class="ext" style="margin-top:10px">Tudo que você digita ou marca é salvo na hora, no banco.</div>
+  </div>
   <div id="contaLista" style="display:none"></div>
   <input type="file" id="lImpArq" accept=".xlsx,.zip" multiple style="display:none">
   <div id="formC" style="display:none">
@@ -1022,14 +1044,7 @@ const EMP={
  'CONEXAO SERVICOS EM TELECOMUNICACOES EM':{razao:'CONEXAO SERVICOS EM TELECOMUNICACOES EM GERAL LTDA',cnpj:'65.086.370/0001-39',end:'R 29 DE ABRIL, 166, Nova Santa Rosa/PR',cidade:NSR,tpl:'CONEXAO'},
  'SCM EVOLUTT CONNECT LTDA':{razao:'SCM EVOLUTT CONNECT LTDA',cnpj:'08.769.755/0024-53',end:'R 7 DE SETEMBRO, 765, PONTA PORÃ/MS',cidade:NSR,tpl:'NATIVA'},
  'ESTRATEGIA SERVICOS DE ATENDIMENTOS E CO':{razao:'ESTRATEGIA SERVICOS DE ATENDIMENTOS E CONSULTORIA EM GERAL LTDA',cnpj:'64.962.235/0001-47',end:'Rua 29 de Abril, 145, Nova Santa Rosa/PR',cidade:NSR,tpl:'ESTRATEGIA'},
- 'FECHOU! PROSPECCAO & NEGOCIOS LTDA': {
-    razao: 'FECHOU! PROSPECCAO & NEGOCIOS LTDA',
-    cnpj: '67.306.723/0001-94',
-    end: 'R PAULO FELHAUER, 439 - SALA 01, LOTEAMENTO DAS ROSAS, Nova Santa Rosa/PR',
-    cidade: NSR,
-    fant: 'FECHOU! PROSPECCAO & NEGOCIOS',
-    tpl: null
-},
+ 'FECHOU! PROSPECCAO & NEGOCIOS LTDA':{razao:'FECHOU! PROSPECCAO & NEGOCIOS LTDA',cnpj:'',end:'',cidade:NSR,tpl:'CONEXAO'},
  'OPÇÃOTELECOM TELECOMUNICAÇÕES S/A':{razao:'OPÇÃOTELECOM TELECOMUNICAÇÕES S/A',cnpj:'05.236.051/0001-30',end:'AV TUCUNDUVA, 1070, NOVA SANTA ROSA/PR',cidade:NSR,tpl:'OPCAO_TELECOM'},
  'OPCAO CONSULTORIA E CONTABILIDADE LTDA':{razao:'OPCAO CONSULTORIA E CONTABILIDADE LTDA',cnpj:'59.741.691/0001-27',end:'AV. TUCUNDUVA, 757, CENTRO, NOVA SANTA ROSA/PR',cidade:NSR,tpl:'ESCRITORIO'},
  'PRONTA SERVICOS DE ATIVACOES E MANUTENCO':{razao:'PRONTA SERVICOS DE ATIVACOES E MANUTENCOES DE REDES LTDA',cnpj:'64.930.170/0001-58',end:'Rua Jamil Selen, 51, Naviraí/MS',cidade:'Naviraí/MS',tpl:'PRONTA'},
@@ -1416,11 +1431,11 @@ function setTab(m){
   MODO=m;
   const home=m==='home';
   document.body.classList.toggle('home',home);
-  const TIT={salario:'Cálculo de salário',consulta:'Consulta de funcionários',desconto:'Autorização de desconto',ferias:'Férias · Compensação de horas',empresas:'Dados das empresas',chip:'Termo de chip',celular:'Termo de celular',notebook:'Termo de notebook',epi:'Registro de EPI',conta:'Conta salário',demitidos:'Funcionários demitidos'};
+  const TIT={salario:'Cálculo de salário',consulta:'Consulta de funcionários',desconto:'Autorização de desconto',ferias:'Férias · Compensação de horas',empresas:'Dados das empresas',chip:'Termo de chip',celular:'Termo de celular',notebook:'Termo de notebook',epi:'Registro de EPI',conta:'Conta salário',checklist:'Checklist admissional',demitidos:'Funcionários demitidos'};
   $('titulo').textContent='Portal RH';
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.t===m));
-  $('dica').textContent=home?'Selecione uma opção para começar':TERMOS[m]?'Escolha o funcionário, preencha os dados e baixe o termo em PDF':m==='epi'?'Pesquise o funcionário e clique nele: o PDF do registro de EPI é baixado na hora':m==='conta'?'Escolha o funcionário e complete só o que não está no cadastro':m==='salario'?'Calcule remuneração, encargos e descontos com rubricas personalizadas':m==='demitidos'?'Pesquise os funcionários demitidos ou reative um cadastro':m==='consulta'?'Pesquise e consulte os dados dos funcionários':m==='ferias'?'Escolha o funcionário e gere o relatório de compensação de horas':m==='empresas'?'CNPJ, endereço e modelo usados nos documentos':'Escolha o funcionário, informe valor e parcelas e baixe o PDF';
-  $('calcSalario').style.display=m==='salario'?'block':'none';$('form').style.display='none';$('formF').style.display='none';$('formT').style.display='none';$('formC').style.display='none';$('contaLista').style.display=m==='conta'?'block':'none';if(m==='conta')renderLote();const sec=['consulta','desconto','ferias','chip','celular','notebook','epi','conta','demitidos'].includes(m);$('busca').style.display=sec?'block':'none';EMPDET=null;$('empDet').style.display='none';$('empView').style.display=m==='empresas'?'block':'none';document.body.classList.toggle('wide',m==='ferias');if(m==='empresas')renderEmp();
+  $('dica').textContent=home?'Selecione uma opção para começar':TERMOS[m]?'Escolha o funcionário, preencha os dados e baixe o termo em PDF':m==='epi'?'Pesquise o funcionário e clique nele: o PDF do registro de EPI é baixado na hora':m==='checklist'?'Escolha o funcionário, escolha MS ou PR, complete os dados e marque os documentos':m==='conta'?'Escolha o funcionário e complete só o que não está no cadastro':m==='salario'?'Calcule remuneração, encargos e descontos com rubricas personalizadas':m==='demitidos'?'Pesquise os funcionários demitidos ou reative um cadastro':m==='consulta'?'Pesquise e consulte os dados dos funcionários':m==='ferias'?'Escolha o funcionário e gere o relatório de compensação de horas':m==='empresas'?'CNPJ, endereço e modelo usados nos documentos':'Escolha o funcionário, informe valor e parcelas e baixe o PDF';
+  $('calcSalario').style.display=m==='salario'?'block':'none';$('form').style.display='none';$('formF').style.display='none';$('formT').style.display='none';$('formC').style.display='none';$('contaLista').style.display=m==='conta'?'block':'none';if(m==='conta')renderLote();$('formK').style.display='none';$('kLista').style.display=m==='checklist'?'block':'none';if(m==='checklist')renderKLista();const sec=['consulta','desconto','ferias','chip','celular','notebook','epi','conta','checklist','demitidos'].includes(m);$('busca').style.display=sec?'block':'none';EMPDET=null;$('empDet').style.display='none';$('empView').style.display=m==='empresas'?'block':'none';document.body.classList.toggle('wide',m==='ferias');if(m==='empresas')renderEmp();
   $('fImpBox').style.display=m==='ferias'?'block':'none';
   render();window.scrollTo(0,0);
 }
@@ -1496,7 +1511,7 @@ $('res').addEventListener('click',ev=>{
   if(fa){setTab('desconto');selecionar(+fa.dataset.i);return}
   const cp=ev.target.closest('button.cp');
   if(cp){copia(cp.dataset.v,cp);return}
-  const it=ev.target.closest('.item');if(it){if(MODO==='ferias')selecionarF(+it.dataset.i);else if(TERMOS[MODO])selecionarT(+it.dataset.i);else if(MODO==='epi')baixarEpi(+it.dataset.i);else if(MODO==='conta')selecionarC(+it.dataset.i);else selecionar(+it.dataset.i)}
+  const it=ev.target.closest('.item');if(it){if(MODO==='ferias')selecionarF(+it.dataset.i);else if(TERMOS[MODO])selecionarT(+it.dataset.i);else if(MODO==='epi')baixarEpi(+it.dataset.i);else if(MODO==='conta')selecionarC(+it.dataset.i);else if(MODO==='checklist')selecionarK(+it.dataset.i);else selecionar(+it.dataset.i)}
 });
 $('trocar').onclick=()=>{$('form').style.display='none';$('busca').style.display='block';$('q').focus();$('q').select()};
 $('togEmp').onclick=()=>{const b=$('empBox');const s=b.style.display==='none';b.style.display=s?'grid':'none';$('togEmp').textContent=s?'ocultar':'editar'};
@@ -2029,6 +2044,156 @@ function baixarEpi(i){
   if(!m.entrega&&!confirm('Este funcionário não tem data de admissão cadastrada. Gerar o PDF com a Data de Entrega em branco?'))return;
   gerarEpiPDF(m).save('Registro EPI '+norm(m.nome).replace(/[^A-Z0-9]+/g,' ').trim()+'.pdf');
 }
+/* ---------- Checklist admissional (MS / PR) ---------- */
+const CHK_COMUM=[
+ ['ctps','Carteira de Trabalho e Número de inscrição no PIS.'],['cpf','CPF'],['rg','RG'],['certnc','Certidão de Nascimento ou Casamento'],['sus','Cartão do Sus'],
+ ['conj','RG e CPF do cônjuge'],['foto','Foto 3 X 4 Recente (TIRAR DIGITAL)'],['certfil','Certidão de Nascimento dos Filhos Menores de 14 anos.'],['cpffil','CPF dos Filhos Menores de 14 anos.'],
+ ['vacina','Declaração de Vacinação dos Filhos Menores de 7 anos.'],['freq','Declaração de frequência escolar dos filhos maiores de 7 anos'],['titulo','Título Eleitoral'],['email','E-mail particular'],
+ ['cnh','Carteira Nacional de Habilitação'],['reserv','Certificado de Reservista Militar'],['resid','Comprovante de Residência Atualizado'],['escolar','Comprovante de Escolaridade']];
+const CHK_MS=CHK_COMUM.concat([
+ ['conta','Solicitação de abertura de conta salário no Banco Sicoob'],['seguro','Inclusão no seguro de vida ( ICATU )'],['sodexo','Pedir cartão Sodexo'],['exp','CONTRATO DE EXPERIENCIA'],['var','CONTRATO REMUNERAÇÃO VARIAVEL'],
+ ['sigilo','Termo de Confidencialidade e Sigilo'],['termomail','Termo de Responsabilidade pelo e-mail'],['bh','Acordo individual de Banco de Horas'],['devctps','Devolução CTPS'],['planilha','PLANILHA DE COLABORADORES'],
+ ['mk','Consultar se tem pendência no MK'],['salfam','SALÁRIO FAMÍLIA'],['vt','RENÚNCIA DO VALE TRANSPORTE'],['antec','ANTECEDENTES CRIMINAIS (para maiores de 18 anos)']]);
+const CHK_PR=CHK_COMUM.concat([
+ ['conta','Abertura de conta salário no SICOOB'],['saude','Inclusão no Plano de Saúde - SEMPRE VIDA'],['aso','Agendamento de exame admissional e envio da guia (Clínica São Lucas) 3254-6636'],
+ ['clube','Inclusão de Sócio no Clube INTERNACIONAL'],['va','Inclusão do Vale Alimentação Nutricard e desbloqueio de cartão'],['seguro','Inclusão no Seguro de Vida em Grupo'],
+ ['wpp','Inclusão no WhatsApp – Grupo de Avisos da Opção E ENVIAR AVISO NO GRUPO'],['rep','Cadastro no REP – Registro Eletrônico de Ponto'],['digital','Cadastrar digital'],['mk','Consultar se não tem pendência no MK'],
+ ['nr10','Curso NR 10'],['exp','CONTRATO DE EXPERIENCIA'],['var','CONTRATO REMUNERAÇÃO VARIAVEL'],['devctps','Devolução CTPS'],['chip','CHIP CELULAR'],['planilha','PLANILHA DE COLABORADORES'],
+ ['termomail','Termo de compromisso e-mail'],['sigilo','Termo de sigilo'],['epi','Entrega de EPI´s'],['emerg','Ficha emergência'],['bh','Acordo individual de Banco de Horas'],['salfam','SALÁRIO FAMÍLIA'],
+ ['vt','RENÚNCIA DO VALE TRANSPORTE'],['toxico','EXAME TOXICOLÓGICO ( para maiores de 18 anos)'],['antec','ANTECEDENTES CRIMINAIS (para maiores de 18 anos)']]);
+const CHK_AV=[['av_grupo','GRUPO AVISOS'],['av_email','EMAIL – SENHA'],['av_ponto','EXPLICAR PONTO'],['av_bh','BANCO DE HORAS'],['av_cab','CABELO, ADORNOS, BARBA']];
+const K_CAMPOS={
+ MS:[['nome','Nome completo','full'],['tel','Telefone (WhatsApp)',''],['escol','Grau de escolaridade',''],['end','Endereço','full'],['emp','Empresa do registro','full'],['func','Função',''],['sal','Salário',''],['inicio','Início','date']],
+ PR:[['nome','Nome completo','full'],['tel','Telefone (WhatsApp)',''],['end','Endereço','full'],['emp','Empresa do registro','full'],['func','Função',''],['sal','Salário',''],['inicio','Início','date']]};
+const K_PORT={MS:[['ag','Agência'],['conta','Conta']],PR:[['banco','Banco'],['ag','Agência'],['conta','Conta']]};
+let CHK={};try{CHK=JSON.parse(localStorage.getItem('checklist_adm_v1')||'{}')}catch(e){}
+let KSEL=null,KREC=null,KKEY='',KT=null,KUFPAD='MS';
+try{const u=localStorage.getItem('checklist_uf_v1');if(u==='MS'||u==='PR')KUFPAD=u}catch(e){}
+const kLista=uf=>uf==='PR'?CHK_PR:CHK_MS;
+const kChave=(uf,p)=>uf+'|'+(p.cpf?cpfKey(p.cpf):(p.id||'n'));
+function kSalva(){
+  try{localStorage.setItem('checklist_adm_v1',JSON.stringify(CHK))}catch(e){}
+  clearTimeout(KT);KT=setTimeout(()=>sbSalvaKV('_checklist',CHK),500);
+}
+function kGrava(){KREC.t=Date.now();CHK[KKEY]=KREC;kSalva()}
+function kProg(r){const l=kLista(r.uf);const f=l.filter(x=>r.it&&r.it[x[0]]).length;return {f,t:l.length}}
+function kPrefill(P,uf){
+  const k=cpfKey(P.cpf),ex=EXTRA[k]||{},cs=CSAVED[k]||{},tl=TELS[k];
+  const tel=cs.cTel?('('+(cs.cDdd||'')+') '+cs.cTel):(tl?'('+tl.ddd+') '+tl.tel:'');
+  const end=[(cs.cLogr&&cs.cEnd)?cs.cLogr+' '+cs.cEnd:cs.cEnd,cs.cNum,cs.cBairro].filter(Boolean).join(', ');
+  const m=String(P.adm||'').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return {uf,nome:P.nome||'',cpf:P.cpf||'',id:P.id||'',emp:P.emp?empresaDe(P.emp).razao:(P.empNome||''),tel,escol:ex.instr||'',end,func:P.cargo||'',sal:'',
+    inicio:m?m[3]+'-'+m[2]+'-'+m[1]:'',banco:cs.cBanco||'',ag:cs.cAg||'',conta:cs.cConta||'',tipoc:'',it:{}};
+}
+function abreK(P,uf){
+  KSEL=P;KKEY=kChave(uf,P);KREC=CHK[KKEY]||kPrefill(P,uf);
+  try{localStorage.setItem('checklist_uf_v1',uf)}catch(e){}KUFPAD=uf;
+  $('busca').style.display='none';$('kLista').style.display='none';$('formK').style.display='block';
+  renderK();window.scrollTo(0,0);
+}
+function selecionarK(i){
+  const r=DATA[i],P={nome:r[0],empNome:r[1],emp:r[1],cpf:r[3],cargo:r[4],adm:r[5]};
+  const k=cpfKey(r[3]);let uf=KUFPAD;
+  if(!CHK['MS|'+k]&&CHK['PR|'+k])uf='PR';else if(CHK['MS|'+k]&&!CHK['PR|'+k])uf='MS';
+  abreK(P,uf);
+}
+function abreKRec(key){const r=CHK[key];if(!r)return;KSEL={nome:r.nome,cpf:r.cpf,id:r.id,emp:'',empNome:r.emp,cargo:r.func,adm:''};KKEY=key;KREC=r;
+  $('busca').style.display='none';$('kLista').style.display='none';$('formK').style.display='block';renderK();window.scrollTo(0,0)}
+function renderK(){
+  const r=KREC,uf=r.uf,lista=kLista(uf);
+  $('kNomeT').textContent=r.nome||'Novo colaborador';
+  $('kInfo').textContent=[r.emp,r.func,r.cpf?'CPF '+r.cpf:''].filter(Boolean).join(' · ')||'Preencha os dados abaixo';
+  document.querySelectorAll('#kUf button').forEach(b=>b.classList.toggle('on',b.dataset.uf===uf));
+  $('kCampos').innerHTML=K_CAMPOS[uf].map(c=>`<div class="${c[2]==='full'?'full':''}"><label for="k_${c[0]}">${c[1]}</label><input id="k_${c[0]}" data-k="${c[0]}"${c[2]==='date'?' type="date"':''} value="${esc(r[c[0]]||'')}"></div>`).join('');
+  $('kPortCampos').innerHTML=K_PORT[uf].map(c=>`<div><label for="k_${c[0]}">${c[1]}</label><input id="k_${c[0]}" data-k="${c[0]}" value="${esc(r[c[0]]||'')}"></div>`).join('')
+    +(uf==='PR'?`<div><label for="k_tipoc">Tipo de conta</label><select id="k_tipoc" data-k="tipoc"><option value=""></option><option${r.tipoc==='Corrente'?' selected':''}>Corrente</option><option${r.tipoc==='Poupança'?' selected':''}>Poupança</option></select></div>`:'');
+  const row=x=>`<label class="kchk${r.it[x[0]]?' on':''}"><input type="checkbox" data-it="${x[0]}"${r.it[x[0]]?' checked':''}><span>${esc(x[1])}</span></label>`;
+  $('kItens').innerHTML=lista.map(row).join('');
+  $('kAv').innerHTML=CHK_AV.map(row).join('');
+  $('kDoCad').textContent='Ficha de '+(r.uf==='MS'?'Mato Grosso do Sul':'Paraná')+'. O que já existe no cadastro (telefone, endereço, conta) vem preenchido; complete o que faltar.';
+  kAtualizaProg();
+}
+function kAtualizaProg(){
+  const p=kProg(KREC),el=$('kProg');el.textContent=p.f+' de '+p.t+' marcados';el.className='tag '+(p.f===p.t?'ok':'wn');
+}
+document.querySelectorAll('#kUf button').forEach(b=>b.onclick=()=>{
+  const uf=b.dataset.uf;if(uf===KREC.uf)return;
+  const P=Object.assign({},KSEL,{nome:KREC.nome||KSEL.nome}),old=KREC;
+  abreK(P,uf);
+  if(!CHK[KKEY]){['nome','emp','tel','end','func','sal','inicio','banco','ag','conta','tipoc'].forEach(f=>{if(old[f])KREC[f]=old[f]});renderK()} // sem checklist nessa UF ainda: leva os dados já digitados
+});
+$('formK').addEventListener('input',ev=>{
+  const t=ev.target;if(!t.dataset||!t.dataset.k)return;
+  KREC[t.dataset.k]=t.value;if(t.dataset.k==='nome'){KSEL.nome=t.value;$('kNomeT').textContent=t.value||'Novo colaborador'}
+  kGrava();
+});
+$('formK').addEventListener('change',ev=>{
+  const t=ev.target;
+  if(t.dataset&&t.dataset.it){if(t.checked)KREC.it[t.dataset.it]=1;else delete KREC.it[t.dataset.it];t.closest('.kchk').classList.toggle('on',t.checked);kGrava();kAtualizaProg()}
+  else if(t.dataset&&t.dataset.k){KREC[t.dataset.k]=t.value;kGrava()}
+});
+$('kTodos').onclick=()=>{kLista(KREC.uf).forEach(x=>KREC.it[x[0]]=1);kGrava();renderK()};
+$('kLimpa').onclick=()=>{if(!confirm('Desmarcar todos os documentos desta checklist?'))return;KREC.it={};kGrava();renderK()};
+$('trocarK').onclick=()=>{$('formK').style.display='none';$('busca').style.display='block';$('kLista').style.display='block';renderKLista();$('q').focus();$('q').select()};
+$('kNovo').onclick=()=>abreK({nome:'',id:'n'+Date.now().toString(36)},KUFPAD);
+function renderKLista(){
+  const ks=Object.keys(CHK).sort((a,b)=>(CHK[b].t||0)-(CHK[a].t||0));
+  $('kAndamento').innerHTML=ks.length?ks.map(k=>{const r=CHK[k],p=kProg(r);
+    return `<div class="card item" data-kk="${esc(k)}"><div><b>${esc(r.nome||'(sem nome)')}</b><small>${esc(r.emp||'—')} · ${esc(r.func||'—')}</small></div><span><span class="tag ${p.f===p.t?'ok':'wn'}">${r.uf} · ${p.f}/${p.t}</span> <button class="cp" data-kdel="${esc(k)}">Excluir</button></span></div>`}).join('')
+    :'<div class="empty">Nenhuma checklist iniciada ainda.</div>';
+}
+$('kAndamento').addEventListener('click',ev=>{
+  const d=ev.target.closest('[data-kdel]');
+  if(d){ev.stopPropagation();const k=d.dataset.kdel;if(confirm('Excluir a checklist de '+(CHK[k].nome||'sem nome')+' ('+CHK[k].uf+')?')){delete CHK[k];kSalva();renderKLista()}return}
+  const it=ev.target.closest('[data-kk]');if(it)abreKRec(it.dataset.kk);
+});
+function gerarKPDF(r){
+  const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:'mm',format:'a4',compress:true});
+  const L=15,lista=kLista(r.uf);
+  const fit=(t,x,y,w,fs,st)=>{doc.setFont('helvetica',st||'normal');doc.setFontSize(fs);while(fs>6&&doc.getTextWidth(t)>w){fs-=.5;doc.setFontSize(fs)}doc.text(t,x,y)};
+  const box=(x,y,on)=>{doc.setLineWidth(.25);doc.setDrawColor(40);doc.rect(x,y-3.1,3.4,3.4);if(on){doc.setLineWidth(.5);doc.line(x+.6,y-2.5,x+2.8,y-.4);doc.line(x+2.8,y-2.5,x+.6,y-.4)}};
+  const fmt=d=>{const m=String(d||'').match(/^(\d{4})-(\d{2})-(\d{2})$/);return m?m[3]+'/'+m[2]+'/'+m[1]:''};
+  doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text('FICHA DE CADASTRO INICIAL',105,14,{align:'center'});
+  // campos
+  let y=27;
+  K_CAMPOS[r.uf].filter(c=>c[0]!=='inicio').forEach(c=>{
+    doc.setFont('helvetica','normal');doc.setFontSize(9.5);const lab=c[1]+':';doc.text(lab,L,y);
+    const x0=L+doc.getTextWidth(lab)+2;fit(String(r[c[0]]||''),x0,y,112-x0,9.5,'bold');
+    doc.setLineWidth(.15);doc.setDrawColor(150);doc.line(x0,y+1,112,y+1);y+=7;
+  });
+  // caixa AVISAR
+  const bx=122,bw=73;doc.setLineWidth(.35);doc.setDrawColor(40);doc.rect(bx,20,bw,41);doc.rect(bx,61,bw,9);
+  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.text('AVISAR:',bx+2,25.5);
+  CHK_AV.forEach((a,i)=>{box(bx+2,31.2+i*6.2,!!r.it[a[0]]);doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.text(a[1],bx+7,31+i*6.2)});
+  doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.text('INÍCIO:',bx+2,67);
+  const ini=fmt(r.inicio)||('______/____/'+new Date().getFullYear());doc.setFont('helvetica','bold');doc.text(ini,bx+20,67);
+  y=Math.max(y,74)+2;
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('Documentos para Cadastro:',L,y);y+=6;
+  const cols=lista.length>34?2:1,cw=cols===2?90:172,fs=cols===2?9:9.5,lh=cols===2?4.0:4.4,gp=cols===2?1.3:.9,ys=y;
+  doc.setFont('helvetica','normal');doc.setFontSize(fs);
+  const bl=lista.map(it=>({it,ls:doc.splitTextToSize(it[1],cw-8)})),tot=bl.reduce((a,x)=>a+x.ls.length*lh+gp,0);
+  let col=0,acc=0,yEnd=y;
+  bl.forEach(x=>{
+    const h=x.ls.length*lh+gp;
+    if(cols===2&&col===0&&acc>=tot/2){col=1;y=ys}
+    if(cols===1&&y+h>283){doc.addPage();y=18}
+    const xx=L+col*93;
+    box(xx,y,!!r.it[x.it[0]]);
+    doc.setFont('helvetica',r.it[x.it[0]]?'bold':'normal');doc.setFontSize(fs);doc.text(x.ls,xx+6,y);
+    y+=h;acc+=h;yEnd=Math.max(yEnd,y);
+  });
+  y=yEnd;
+  y+=4;if(y>262){doc.addPage();y=18}
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('Portabilidade',L,y);y+=6;
+  doc.setFontSize(9.5);
+  K_PORT[r.uf].forEach(c=>{doc.setFont('helvetica','normal');const lab=c[1]+':';doc.text(lab,L,y);const x0=L+doc.getTextWidth(lab)+2;fit(String(r[c[0]]||''),x0,y,70,9.5,'bold');doc.setLineWidth(.15);doc.setDrawColor(150);doc.line(x0,y+1,L+80,y+1);y+=6.5});
+  if(r.uf==='PR'){box(L,y,r.tipoc==='Corrente');doc.setFont('helvetica','normal');doc.text('Corrente',L+5,y);box(L+32,y,r.tipoc==='Poupança');doc.text('Poupança',L+37,y)}
+  return doc;
+}
+const kNomeArq=r=>'Checklist admissional '+r.uf+' - '+(norm(r.nome||'colaborador').replace(/[^A-Z0-9]+/g,' ').trim())+'.pdf';
+$('kPdf').onclick=()=>{if(!(KREC.nome||'').trim()){alert('Preencha o nome do colaborador.');return}gerarKPDF(KREC).save(kNomeArq(KREC))};
+$('kVer').onclick=()=>{if(!(KREC.nome||'').trim()){alert('Preencha o nome do colaborador.');return}window.open(URL.createObjectURL(gerarKPDF(KREC).output('blob')),'_blank')};
+
 /* ---------- Conta salário ---------- */
 const EXTRA={"05081767190": {"nasc": "2006-05-01", "civil": "Solteiro", "instr": "Ens.Médio comp.", "email": "paollasv@opcaonet.com.br"}, "00657348155": {"nasc": "1977-08-02", "civil": "Casado", "instr": "Ens.Médio inc.", "email": "rosaca@opcaonet.com.br"}};
 const CF=[['cTipoDoc'],['cNumDoc'],['cOrg'],['cUfExp'],['cDtEm'],['cCep'],['cLogr'],['cEnd'],['cBairro'],['cNum'],['cCompl'],['cDdd'],['cTel'],['cMail'],['cBanco'],['cAg'],['cConta'],['cTipoC'],['cCartao'],['cPort'],['rCpf'],['rNome'],['rTipo'],['rNum'],['rOrg'],['rUf'],['rData'],['rDdd'],['rCel']].map(a=>a[0]);
@@ -3546,23 +3711,25 @@ async function sbSalvaKV(k,v){
   if(error)alert('Não consegui salvar no banco: '+error.message);
 }
 async function sbCarregaExtras(){
-  const CH=['_empresas','_prolabore','_prefs'];
+  const CH=['_empresas','_prolabore','_prefs','_checklist'];
   const {data,error}=await SB.from('conta_salario').select('cpf,dados').in('cpf',CH);if(error)throw error;
   const R={};(data||[]).forEach(r=>R[r.cpf]=r.dados);
   let mig=false;try{mig=localStorage.getItem('kv_sync_v1')==='1'}catch(e){}
   /* depois da 1ª sincronização o banco é a fonte; na 1ª vez junta com o que já existia neste navegador */
   const mescla=(loc,rem)=>(mig&&rem)?rem:Object.assign({},loc,rem||{});
-  SAVED=mescla(SAVED,R._empresas);PROL=mescla(PROL,R._prolabore);
+  SAVED=mescla(SAVED,R._empresas);PROL=mescla(PROL,R._prolabore);CHK=mescla(CHK,R._checklist);
   const pf=R._prefs&&R._prefs.ferias_modelo;if(pf==='completa'||pf==='simples')MODELO=pf;
   const pq=R._prefs&&R._prefs.ferias_hepct;if(pq==='50'||pq==='60')HEP=pq;
   const pt=R._prefs&&R._prefs.tema;if(pt==='light'||pt==='dark')aplicaTema(pt,false);
-  try{localStorage.setItem('desc_empresas_v1',JSON.stringify(SAVED));localStorage.setItem('prolabore_v1',JSON.stringify(PROL));localStorage.setItem('ferias_modelo_v1',MODELO)}catch(e){}
+  try{localStorage.setItem('desc_empresas_v1',JSON.stringify(SAVED));localStorage.setItem('prolabore_v1',JSON.stringify(PROL));localStorage.setItem('ferias_modelo_v1',MODELO);localStorage.setItem('checklist_adm_v1',JSON.stringify(CHK))}catch(e){}
   SYNC_KV=true;
+  if(!R._checklist&&Object.keys(CHK).length)await sbSalvaKV('_checklist',CHK);
   if(!mig||!R._empresas)await sbSalvaKV('_empresas',SAVED);
   if(!mig||!R._prolabore)await sbSalvaKV('_prolabore',PROL);
   if(!mig||!R._prefs||!R._prefs.tema)await sbSalvaPrefs();
   try{localStorage.setItem('kv_sync_v1','1')}catch(e){}
   try{renderEmp()}catch(e){}
+  try{if(MODO==='checklist'&&$('formK').style.display==='none')renderKLista()}catch(e){}
   try{aplicaModelo(false)}catch(e){}
 }
 /* ---------- Demitir / Reativar ---------- */
