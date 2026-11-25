@@ -13,27 +13,37 @@
 <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="head">
-    <div class="logo"><img id="logo" alt="Opção Consultoria e Contabilidade"></div>
-    <div><h1 id="titulo">Portal RH</h1><div class="sub"><span id="dica"></span> · <span id="cnt"></span></div></div>
-    <button class="tema-btn" id="tema" type="button" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro"></button>
-  </div>
-  <div class="tabs">
-    <button class="tab" data-t="home">← Início</button>
+<div class="app">
+<aside class="sidenav" id="sidenav">
+  <div class="sb-head"><div class="logo"><img id="logo" alt="Opção Consultoria e Contabilidade"></div></div>
+  <nav class="tabs" aria-label="Menu principal">
+    <button class="tab" data-t="home">Início</button>
+    <div class="grp">Pessoas</div>
     <button class="tab" data-t="consulta">Consulta de funcionários</button>
+    <button class="tab" data-t="empresas">Empresas</button>
+    <button class="tab" data-t="demitidos">Demitidos</button>
+    <div class="grp">Termos e documentos</div>
     <button class="tab" data-t="desconto">Autorização de desconto</button>
     <button class="tab" data-t="chip">Termo de chip</button>
     <button class="tab" data-t="celular">Termo de celular</button>
     <button class="tab" data-t="notebook">Termo de notebook</button>
     <button class="tab" data-t="epi">Registro de EPI</button>
-    <button class="tab" data-t="conta">Conta salário</button>
     <button class="tab" data-t="checklist">Checklist admissional</button>
+    <div class="grp">Folha e benefícios</div>
+    <button class="tab" data-t="conta">Conta salário</button>
     <button class="tab" data-t="salario">Cálculo de salário</button>
     <button class="tab" data-t="ferias">Férias · Compensação de horas</button>
-    <button class="tab" data-t="empresas">Empresas</button>
-    <button class="tab" data-t="demitidos">Demitidos</button>
+  </nav>
+  <div class="side-foot">
+    <button class="tema-btn" id="tema" type="button" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro"></button>
+    <button id="sbSair" type="button" style="display:none">Sair</button>
   </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+<main class="main">
+<div class="topbar"><button id="menuBtn" type="button" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span>Portal RH</span></div>
+<div class="wrap">
+  <div class="pagehead"><h1 id="titulo">Portal RH</h1><div class="sub"><span id="dica"></span><span class="dot"> · </span><span id="cnt"></span></div></div>
 
   <div id="home">
     <div class="sec-t">O que você quer fazer?</div>
@@ -336,6 +346,8 @@
 
   <div class="foot">Contém CPFs de funcionários: não compartilhe este arquivo fora da empresa. Tudo roda neste arquivo, nada é enviado pela internet.</div>
 </div>
+</main>
+</div>
 
 <div class="modal" id="mFicha"><div class="box2">
   <h2 id="fiNome"></h2>
@@ -435,7 +447,7 @@
   </main>
  </div>
 </div>
-<button id="sbSair" style="display:none;position:fixed;right:10px;bottom:10px;z-index:50;padding:6px 12px;border:1px solid #ccc;border-radius:8px;background:#fff;font-size:12px;cursor:pointer">Sair</button>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="index.js" charset="utf-8"></script>
 </body>
