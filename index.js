@@ -836,7 +836,7 @@ function setTab(m){
   const home=m==='home';
   document.body.classList.toggle('home',home);
   const TIT={salario:'Cálculo de salário',consulta:'Consulta de funcionários',desconto:'Autorização de desconto',ferias:'Férias · Compensação de horas',empresas:'Dados das empresas',chip:'Termo de chip',celular:'Termo de celular',notebook:'Termo de notebook',epi:'Registro de EPI',conta:'Conta salário',checklist:'Checklist admissional',demitidos:'Funcionários demitidos'};
-  $('titulo').textContent='Portal RH';
+  $('titulo').textContent=home?'Portal RH':(TIT[m]||'Portal RH');
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.t===m));
   $('dica').textContent=home?'Selecione uma opção para começar':TERMOS[m]?'Escolha o funcionário, preencha os dados e baixe o termo em PDF':m==='epi'?'Pesquise o funcionário e clique nele: o PDF do registro de EPI é baixado na hora':m==='checklist'?'Escolha o funcionário, escolha MS ou PR, complete os dados e marque os documentos':m==='conta'?'Escolha o funcionário e complete só o que não está no cadastro':m==='salario'?'Calcule remuneração, encargos e descontos com rubricas personalizadas':m==='demitidos'?'Pesquise os funcionários demitidos ou reative um cadastro':m==='consulta'?'Pesquise e consulte os dados dos funcionários':m==='ferias'?'Escolha o funcionário e gere o relatório de compensação de horas':m==='empresas'?'CNPJ, endereço e modelo usados nos documentos':'Escolha o funcionário, informe valor e parcelas e baixe o PDF';
   $('calcSalario').style.display=m==='salario'?'block':'none';$('form').style.display='none';$('formF').style.display='none';$('formT').style.display='none';$('formC').style.display='none';$('contaLista').style.display=m==='conta'?'block':'none';if(m==='conta')renderLote();$('formK').style.display='none';$('kLista').style.display=m==='checklist'?'block':'none';if(m==='checklist')renderKLista();const sec=['consulta','desconto','ferias','chip','celular','notebook','epi','conta','checklist','demitidos'].includes(m);$('busca').style.display=sec?'block':'none';EMPDET=null;$('empDet').style.display='none';$('empView').style.display=m==='empresas'?'block':'none';document.body.classList.toggle('wide',m==='ferias');if(m==='empresas')renderEmp();
@@ -3351,3 +3351,18 @@ $('csFuncionario').addEventListener('change',()=>{
 csAtualizaFuncionarios();
 csNovaRubrica(csPresets[0]);csRubricas.splice(0);csRenderRubricas();csCalcular();
 setTab('home');
+
+/* ---------- Menu lateral: icones, gaveta no celular ---------- */
+(function(){
+  const casa='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg>';
+  document.querySelectorAll('.tab').forEach(b=>{
+    const t=b.dataset.t, src=t==='home'?null:document.querySelector('.opt[data-go="'+t+'"] .ico svg');
+    if(t==='home')b.insertAdjacentHTML('afterbegin',casa);
+    else if(src)b.insertBefore(src.cloneNode(true),b.firstChild);
+    else b.classList.add('noico');
+    b.addEventListener('click',()=>document.body.classList.remove('nav-open'));
+  });
+  $('menuBtn').onclick=()=>document.body.classList.add('nav-open');
+  $('scrim').onclick=()=>document.body.classList.remove('nav-open');
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.body.classList.remove('nav-open')});
+})();
