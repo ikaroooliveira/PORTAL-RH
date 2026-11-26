@@ -1653,12 +1653,24 @@ try{CSAVED=JSON.parse(localStorage.getItem('conta_sal_v1')||'{}')}catch(e){}
 try{LOTE=JSON.parse(localStorage.getItem('conta_lote_v1')||'[]')}catch(e){}
 const salvaC=()=>{try{localStorage.setItem('conta_sal_v1',JSON.stringify(CSAVED));localStorage.setItem('conta_lote_v1',JSON.stringify(LOTE))}catch(e){}sbSalvaLote()};
 const CDEF={cLogr:'RUA',cCompl:'N/A',cDdd:'45',cTipoC:'CORRENTE',cCartao:'NÃO',cPort:'SIM'};
+/* Cartão = SIM e Portabilidade = NÃO: só abre conta salário nova, sem conta externa -> esconde os dados bancários */
+const CBANC=['cBanco','cAg','cConta','cTipoC'];
+const ehSim=v=>norm(String(v||'').trim())==='SIM';
+const ehNao=v=>['NAO','N'].includes(norm(String(v||'').trim()));
+const soContaNova=()=>ehSim($('cCartao').value)&&ehNao($('cPort').value);
+function ajustaBanco(){
+  const h=soContaNova();
+  CBANC.forEach(id=>{$(id).parentElement.style.display=h?'none':''});
+  if(!h&&!$('cTipoC').value.trim())$('cTipoC').value='CORRENTE';
+}
+['cCartao','cPort'].forEach(id=>$(id).addEventListener('input',ajustaBanco));
 function selecionarC(i){
   SELC=DATA[i];const k=cpfKey(SELC[3]),ex=EXTRA[k]||{},sv=CSAVED[k]||{};
   $('cNomeT').textContent=SELC[0];
   $('cInfo').textContent=SELC[1]+' · '+(SELC[4]||'—')+' · CPF '+SELC[3];
   $('cDoCad').textContent=ex.email?', e-mail':'';
   CF.forEach(id=>$(id).value=sv[id]!=null?sv[id]:(CDEF[id]||''));
+  ajustaBanco();
   if(!$('cMail').value&&ex.email)$('cMail').value=ex.email;
   const tl=TELS[k];if(tl&&sv.cTel==null){$('cDdd').value=tl.ddd;$('cTel').value=tl.tel}
   $('cResp').open=!!(ex.nasc&&(Date.now()-new Date(ex.nasc))/31557600000<18);
@@ -1670,9 +1682,10 @@ $('trocarC').onclick=()=>{$('formC').style.display='none';$('busca').style.displ
 const OBRIG={cTipoDoc:'tipo de documento',cNumDoc:'número do documento',cOrg:'órgão expedidor',cUfExp:'UF de expedição',cDtEm:'data de emissão',cCep:'CEP',cEnd:'endereço',cBairro:'bairro',cNum:'número',cDdd:'DDD',cTel:'telefone',cMail:'e-mail',cBanco:'instituição financeira',cAg:'agência',cConta:'número da conta',cTipoC:'tipo de conta'};
 function addConta(){
   const er=$('cErro');er.className='msg bad';
-  const falta=Object.keys(OBRIG).filter(id=>!$(id).value.trim()).map(id=>OBRIG[id]);
+  const semBanco=soContaNova();
+  const falta=Object.keys(OBRIG).filter(id=>!(semBanco&&CBANC.includes(id))&&!$(id).value.trim()).map(id=>OBRIG[id]);
   if(falta.length){er.textContent='Falta preencher: '+falta.join(', ')+'.';return false}
-  const k=cpfKey(SELC[3]),sv={};CF.forEach(id=>sv[id]=$(id).value.trim());CSAVED[k]=sv;sbSalvaConta(k,sv);
+  const k=cpfKey(SELC[3]),sv={};CF.forEach(id=>sv[id]=(semBanco&&CBANC.includes(id))?'':$(id).value.trim());CSAVED[k]=sv;sbSalvaConta(k,sv);
   const emp=norm(SELC[1]).startsWith('SCM EVOLUTT')?'SCM EVOLUTT CONNECT LTDA':empresaDe(SELC[1]).razao;
   let cnpjE=empresaDe(SELC[1]).cnpj;
   if(norm(SELC[1]).startsWith('SCM EVOLUTT')){const f=SCMF.find(x=>x.id===(SCM_CPF[norm(SELC[0])]||'ppnativa'));if(f)cnpjE=f.cnpj}
@@ -1704,7 +1717,7 @@ function renderLote(){
   ${G.map(g=>{const c=cnpjsGrupo(g.rows);return `<div style="border:1px solid var(--line,#ddd);border-radius:10px;padding:10px 12px;margin-top:10px">
     <div style="font-weight:600">${esc(nomeGrupo(g.rows))}</div>
     <div class="mini" style="margin-bottom:6px">${c.length?'CNPJ '+esc(c.join(' · ')):'CNPJ não informado'} · ${g.rows.length} ${g.rows.length===1?'funcionário':'funcionários'}</div>
-    ${g.rows.map((r,j)=>`<div class="ext" style="display:flex;justify-content:space-between;gap:8px"><span>${esc(r.nome)} · ${esc(r.cpf)} · ${esc(r.cBanco)}</span><span style="display:flex;gap:12px"><button class="lnk" data-ed="${esc(r.cpf)}">editar</button><button class="lnk" data-x="${g.idx[j]}">remover</button></span></div>`).join('')}
+    ${g.rows.map((r,j)=>`<div class="ext" style="display:flex;justify-content:space-between;gap:8px"><span>${esc(r.nome)} · ${esc(r.cpf)} · ${esc(r.cBanco||'Conta nova')}</span><span style="display:flex;gap:12px"><button class="lnk" data-ed="${esc(r.cpf)}">editar</button><button class="lnk" data-x="${g.idx[j]}">remover</button></span></div>`).join('')}
     <div class="actions"><button class="btn" data-g="${esc(g.key)}">Baixar Excel desta empresa</button><button class="lnk" data-lg="${esc(g.key)}">limpar esta empresa</button></div></div>`}).join('')}
   ${G.length>1?'<div class="actions"><button class="btn sec" id="lZip">Baixar todas (ZIP)</button></div>':''}</div>`;
 }
