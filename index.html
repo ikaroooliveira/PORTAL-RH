@@ -12,34 +12,6 @@
 <script>(function(){var t="dark";try{var v=localStorage.getItem("tema_v1");if(v==="light"||v==="dark")t=v}catch(e){}document.documentElement.setAttribute("data-theme",t)})()</script>
 <link rel="stylesheet" href="index.css">
 </head>
-  <script>
-(function () {
- var URL_CALC = 'frontend/frontend/index.html';
-  var icone = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg>';
-  var seta = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>';
-
-  function adiciona() {
-    // Botão no menu lateral
-    var nav = document.querySelector('nav.tabs');
-    if (nav && !document.getElementById('lnkCalc')) {
-      nav.insertAdjacentHTML('beforeend',
-        '<div class="grp">Reforma Tributária</div>' +
-        '<a class="tab" id="lnkCalc" href="' + URL_CALC + '" style="text-decoration:none">' + icone + 'Calculadora Tributária</a>');
-    }
-    // Cartão na página inicial
-    var cards = document.querySelector('.cards');
-    if (cards && !document.getElementById('cardCalc')) {
-      cards.insertAdjacentHTML('beforeend',
-        '<a class="opt" id="cardCalc" href="' + URL_CALC + '" style="text-decoration:none;color:inherit">' +
-        '<span class="ico">' + icone + '</span><h3>Calculadora Tributária</h3>' +
-        '<p>IBS, CBS e IS, base de cálculo, CST, NCM/NBS, alíquotas e XML.</p>' +
-        '<span class="go">Abrir ' + seta + '</span></a>');
-    }
-  }
-  // roda depois que o Portal RH já ligou os cliques dos menus
-  window.addEventListener('load', function () { setTimeout(adiciona, 0); });
-})();
-</script>
 <body>
 <div class="app">
 <aside class="sidenav" id="sidenav">
@@ -61,6 +33,7 @@
     <button class="tab" data-t="conta">Conta salário</button>
     <button class="tab" data-t="salario">Cálculo de salário</button>
     <button class="tab" data-t="ferias">Férias · Compensação de horas</button>
+    <button class="tab" data-t="horas">Calculadora de horas</button>
   </nav>
   <div class="side-foot">
     <button class="tema-btn" id="tema" type="button" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro"></button>
@@ -86,6 +59,7 @@
       <button class="opt" data-go="checklist"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m8.5 14 2.2 2.2 4.8-4.8"/></svg></span><h3>Checklist admissional</h3><p>Ficha de cadastro inicial de MS e PR: preencha os dados e marque os documentos recebidos.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="salario"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h4m-4 3h10"/><path d="M16 12v4"/></svg></span><h3>Cálculo de salário</h3><p>Calcule bruto, INSS, IRRF, FGTS e líquido, com horas extras, comissões e outras rubricas.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="ferias"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="2.6"/><path d="M12 13.8v1.3l.9.6"/></svg></span><h3>Férias · Compensação de horas</h3><p>Monte o relatório dia a dia, com jornada, atestados e feriados, em PDF e Excel.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+      <button class="opt" data-go="horas"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><h3>Calculadora de horas</h3><p>Informe entradas e saídas de cada dia e veja horas trabalhadas, extras e faltas.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="empresas"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16"/><path d="M14 10h5a1 1 0 0 1 1 1v10"/><path d="M2.5 21h19"/><path d="M8 8h2M8 12h2M8 16h2"/></svg></span><h3>Dados das empresas</h3><p>Consulte CNPJ, endereço e modelo de cada empresa e complete o que estiver faltando.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
       <button class="opt" data-go="demitidos"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16"/><path d="M14 10h5a1 1 0 0 1 1 1v10"/><path d="M2.5 21h19"/><path d="M8 8h2M8 12h2M8 16h2"/></svg></span><h3>Demitidos</h3><p>Funcionários desligados, com data e motivo da demissão.</p><span class="go">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
     </div>
@@ -96,6 +70,34 @@
     </div>
   </div>
 
+
+  <section id="calcHoras" style="display:none">
+    <div class="card">
+      <div class="sel"><div><h2>Dados da jornada</h2><div class="ext">Preencha os campos abaixo. Os resultados são atualizados automaticamente e ficam salvos neste navegador.</div></div></div>
+      <div class="grid" style="margin-top:12px">
+        <div class="full"><label for="chNome">Nome do funcionário (opcional)</label><input id="chNome" placeholder="Nome do funcionário"></div>
+        <div><label for="chComp">Competência</label><input id="chComp" type="month"></div>
+        <div><label for="chSal">Salário-base mensal (R$)</label><input id="chSal" inputmode="decimal" placeholder="Ex.: 2.500,00"></div>
+        <div><label for="chDiv">Divisor mensal de horas</label><input id="chDiv" type="number" min="1" step="1" value="220"></div>
+        <div><label for="chJor">Jornada diária (dias úteis)</label><input id="chJor" type="time" value="08:48"></div>
+        <div><label for="chJorSab">Jornada aos sábados</label><input id="chJorSab" type="time" value="00:00"></div>
+        <div><label for="chTol">Tolerância diária (minutos)</label><input id="chTol" type="number" min="0" step="1" value="10"></div>
+        <div><label for="chP50">Adicional da hora extra (%)</label><input id="chP50" type="number" min="0" step="1" value="50"></div>
+        <div><label for="chP100">Adicional domingo / feriado (%)</label><input id="chP100" type="number" min="0" step="1" value="100"></div>
+      </div>
+      <div class="calc-note" style="margin-top:10px">A jornada de sábado em 00:00 significa que não há expediente normal no sábado (tudo vira hora extra). Se a diferença do dia ficar dentro da tolerância, não conta como extra nem como atraso; passou disso, conta o tempo todo. "Abonado / folga" não gera desconto e as horas trabalhadas contam como extra. "Falta" desconta a jornada diária. Dias sem nenhuma marcação são ignorados.</div>
+    </div>
+    <div class="card">
+      <div class="sel"><div><h2>Marcações do ponto</h2><div class="ext">Informe entrada, saída e volta do almoço e saída de cada dia. Sem intervalo, preencha só entrada e saída.</div></div>
+        <div class="bar"><button class="btn sec" id="chGerar" type="button">Gerar dias da competência</button><button class="btn sec" id="chAdd" type="button">+ Adicionar dia</button></div></div>
+      <div class="scroll" style="max-height:none;margin-top:12px"><table class="chtb"><thead><tr><th>Data</th><th>Tipo do dia</th><th>Entrada</th><th>Saída almoço</th><th>Volta almoço</th><th>Saída</th><th>Trabalhadas</th><th>Extra</th><th>Dom./feriado</th><th>Falta/atraso</th><th></th></tr></thead><tbody id="chBody"></tbody><tfoot id="chFoot"></tfoot></table></div>
+    </div>
+    <div class="card"><h2>Resumo</h2>
+      <div class="salario-kpis" id="chKpis" style="margin-top:10px"></div>
+      <div class="ext" id="chAviso" style="margin-top:10px"></div>
+      <div class="actions"><button class="btn sec" id="chLimpa" type="button">Limpar marcações</button><button class="btn" id="chCopia" type="button">Copiar resumo</button></div>
+    </div>
+  </section>
 
   <section id="calcSalario" style="display:none">
     <div class="card">
@@ -149,6 +151,17 @@
       <button class="btn sec" id="novo">+ Novo funcionário</button>
       <button class="btn sec" id="imp">Importar relatório</button>
       <button class="lnk" id="rest" style="display:none">Voltar à lista original</button>
+    </div>
+    <input type="file" id="rescFile" accept=".xls,.xlsx" style="display:none">
+    <div class="card" id="rescBox" style="display:none">
+      <div class="sel">
+        <div><h2>Rescisões calculadas</h2><div class="ext" id="rescInfo" style="margin:0"></div></div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <select id="rescVista"><option value="resc">Planilha de rescisões</option><option value="cad">Cadastro (reativar)</option></select>
+          <select id="rescAno"></select>
+          <button class="lnk" id="rescLimpa" type="button">Limpar rescisões</button>
+        </div>
+      </div>
     </div>
     <div class="bar">
       <input id="q" type="search" placeholder="Pesquisar nome ou CPF…" autocomplete="off" autofocus>
