@@ -273,3 +273,13 @@ button.sm:hover{border-color:var(--ac)}
   .lg-card{padding:28px 22px 24px}
 }
 @media (prefers-reduced-motion:reduce){.lg-ledger,.lg-spin{animation:none}}
+
+/* calculadora de horas */
+.chtb{min-width:920px}
+.chtb th,.chtb td{padding:4px 6px}
+.chtb input,.chtb select{padding:6px 7px;font-size:13px;min-width:0}
+.chtb input[type=time]{min-width:94px}
+.chtb input[type=date]{min-width:132px}
+.chtb select{min-width:130px}
+.chtb td.n,.chtb th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.chdw{display:block;font-size:11px;color:var(--mut);text-align:left;margin-top:2px}
